@@ -1,6 +1,6 @@
-# LLM Workshop Discovery and Design Packet
+# AI Coding Workstation Starter Kit
 
-Public starter guide for local CLI-based LLM setup. Suggestions and pull requests are welcome.
+Cloud-first setup for frontier-model APIs, with local models as an optional upgrade. Suggestions and pull requests are welcome.
 
 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
