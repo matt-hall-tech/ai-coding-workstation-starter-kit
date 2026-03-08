@@ -1,5 +1,9 @@
 # LLM Workshop Discovery and Design Packet
 
+Public starter guide for local CLI-based LLM setup. Suggestions and pull requests are welcome.
+
+License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ## Purpose
 
 Use this packet to help a solo technical user set up a safe local machine for CLI-based LLM work.

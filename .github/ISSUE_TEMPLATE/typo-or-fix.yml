@@ -1,0 +1,33 @@
+name: Typo or Small Fix
+description: Report a typo, broken wording, or minor correction
+title: "[Typo/Fix] "
+labels:
+  - typo
+  - fix
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Section or heading
+      description: Where is the issue located?
+      placeholder: Prompt B - Safe LLM Workshop Design
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current text
+      description: Paste the current text snippet.
+      placeholder: Current wording...
+    validations:
+      required: true
+
+  - type: textarea
+    id: corrected
+    attributes:
+      label: Corrected text
+      description: Paste your corrected wording.
+      placeholder: Corrected wording...
+    validations:
+      required: true
