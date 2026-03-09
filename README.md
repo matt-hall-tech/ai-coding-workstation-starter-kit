@@ -15,6 +15,17 @@ If you are new, follow this order:
 3. Design your setup with Prompt B: [docs/full-guide.md#prompt-b---safe-llm-workshop-design](./docs/full-guide.md#prompt-b---safe-llm-workshop-design)
 4. Build the baseline and run one post-build cloud API test: [docs/full-guide.md#first-post-build-cloud-win](./docs/full-guide.md#first-post-build-cloud-win)
 
+### Workspace at a glance
+
+```text
+/LLM-Workshop
+├── repo/      # clone this repo here
+├── work-rw/   # generated editable work
+├── drop-ro/   # read-only source inputs
+├── secrets/   # live keys and .env files (not in Git)
+└── data/      # persistent service/app data
+```
+
 ## Document Map
 
 - Full packet (detailed guide): [docs/full-guide.md](./docs/full-guide.md)
