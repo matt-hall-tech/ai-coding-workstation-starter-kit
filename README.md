@@ -1,8 +1,19 @@
 # AI Coding Workstation Starter Kit
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 Cloud-first setup for frontier-model APIs, with local models as an optional upgrade. Suggestions and pull requests are welcome.
 
 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+## Quick Start (TL;DR)
+
+1. Create one workspace root on your machine (example: `~/LLM-Workshop`).
+2. Clone this repo into `repo/` inside that workspace root.
+3. Run **Prompt A - Hardware and System Discovery** with an LLM.
+4. Save that output as `machine-discovery.md`.
+5. Run **Prompt B - Safe LLM Workshop Design** with `machine-discovery.md`.
+6. Build the baseline manually, then run one post-build cloud API test.
 
 ## Purpose
 
@@ -116,6 +127,8 @@ These are things to work toward, not start with.
 - [ ] Migrate the same structure to a Linux VPS
 - [ ] Split build workspace from heavier local services
 - [ ] Add more than one agent provider only after the base workflow is stable
+
+Starter scaffold included: `bootstrap.sh`
 
 ---
 
@@ -292,6 +305,30 @@ A folder that tools can safely edit.
 ## Recommended generic folder layout
 
 Choose one stable root and keep it consistent.
+
+### Visual layout
+
+```text
+/LLM-Workshop
+├── repo/        # clone this repository here
+├── work-rw/     # read/write generated working area
+├── drop-ro/     # read-only intake source material
+├── secrets/     # live keys and .env files (not in Git)
+├── data/        # persistent app/service data
+├── logs/        # persistent logs
+├── models/      # optional local model files
+└── backups/     # backup exports and snapshots
+```
+
+```mermaid
+graph TD
+    root["LLM-Workshop"] --> repo["repo/ (Git repo)"]
+    root --> work["work-rw/ (generated outputs)"]
+    root --> drop["drop-ro/ (source docs, read-only)"]
+    root --> secrets["secrets/ (live credentials)"]
+    root --> data["data/ (persistent volumes)"]
+    root --> models["models/ (optional local model files)"]
+```
 
 ### Suggested folders
 
@@ -529,9 +566,42 @@ These are the basics a solo user usually needs immediately.
 - [ ] document required variable names in `.env.example`
 - [ ] never place real secret values in `.env.example`
 
-### First cloud CLI win
+### First post-build cloud win
 
-Translate "cloud CLI first" into one simple success path:
+After you finish the baseline setup, run one small cloud API call.
+
+Why this matters in simple terms:
+
+- [ ] it proves your machine can talk to a real model provider
+- [ ] it proves your key loading pattern works
+- [ ] it gives you one concrete success before adding more complexity
+
+Use this provider-neutral OpenAI-compatible example:
+
+```bash
+# 1) Keep real secrets outside the repo.
+#    Example file: ../secrets/provider.env
+#    Expected keys:
+#    LLM_API_BASE=https://api.openai.com
+#    LLM_API_KEY=replace-me
+#    LLM_MODEL=gpt-4o-mini
+
+set -a
+source ../secrets/provider.env
+set +a
+
+curl -s "$LLM_API_BASE/v1/chat/completions" \
+  -H "Authorization: Bearer $LLM_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "'"${LLM_MODEL:-gpt-4o-mini}"'",
+    "messages": [{"role":"user","content":"Reply with OK and one setup tip."}]
+  }'
+```
+
+If this returns a model response, your post-build cloud path is working.
+
+Translate this into one simple success path:
 
 - [ ] create an API key with the provider you want to use
 - [ ] store the real key outside the repo
@@ -573,6 +643,8 @@ Important:
 - You cannot inspect the user's computer automatically.
 - You must give the user the commands to run.
 - The user must run those commands manually in their own terminal and paste the output back.
+- Before giving any command list, say this exact warning:
+  "I cannot run these commands on your machine. Please run them in your terminal and paste the output back."
 
 Rules:
 
@@ -622,8 +694,9 @@ Special handling:
 
 The report should also estimate:
 
-- realistic local model size range
+- realistic local model size range (for example, comfortable 7B to 13B, possible but slower above that)
 - safe starting context range
+- expected usable context at decent speed
 - whether local inference is likely to be comfortable, merely possible, or not worthwhile
 
 Output format:
@@ -739,6 +812,7 @@ Rules:
 8. Explain all recommendations in plain language.
 9. If the machine is not suitable for local LLMs, say so clearly.
 10. Prefer simple, rebuildable patterns.
+11. Explicitly define `.gitignore` rules that keep `secrets/`, live `.env` files, and machine-local artifacts out of Git.
 
 You must choose and justify one of these base models:
 
@@ -766,6 +840,7 @@ You must estimate:
 
 - practical local model size range
 - safe starting context range
+- expected usable context at decent speed
 - whether the machine is better suited to cloud-only, hybrid, or strong local inference
 - whether a workspace-level helper `.venv` is acceptable during the experimentation phase
 
@@ -776,6 +851,7 @@ If local inference is practical, suggest one starter runtime only, chosen from e
 - llama.cpp
 
 Do not encourage installing several runtimes at once on day one.
+Recommend conservative starter quantization defaults (for example, Q4_K_M or Q5_K_M GGUF) unless the machine clearly supports heavier settings.
 
 You must output:
 
@@ -915,6 +991,7 @@ Examples of the kind of progression a user might choose:
 
 - [ ] start with one provider and one CLI workflow
 - [ ] later add another provider if it solves a real need
+- [ ] optionally add LiteLLM later if you want one OpenAI-compatible gateway across multiple providers
 - [ ] keep the first workflow stable before adding more moving parts
 
 ### Add a local model runtime
@@ -938,23 +1015,9 @@ Once the base workflow is stable:
 
 ---
 
-## Learning and search topics
+## Next learning topics
 
-Useful things to research once the baseline is working:
-
-- [ ] Python virtual environments for beginners
-- [ ] SSH keys GitHub setup
-- [ ] `.env.example` best practices
-- [ ] `.gitignore` basics
-- [ ] `.dockerignore` basics
-- [ ] Docker volumes versus bind mounts
-- [ ] WSL2 versus Linux for development
-- [ ] Apple Silicon local LLM memory limits
-- [ ] local LLM quantization basics
-- [ ] local LLM context length memory usage
-- [ ] Docker Compose for self-hosted tools
-- [ ] devcontainers explained simply
-- [ ] Ansible for single-machine bootstrap
+See [NEXT-STEPS.md](./NEXT-STEPS.md) for focused learning and search topics after your baseline is working.
 
 ---
 
