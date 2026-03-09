@@ -7,15 +7,52 @@ A beginner-friendly guide to set up your computer for AI coding in a safe, cloud
 ## Who This Is For
 
 - You use macOS, Linux, or Windows
-- You can use a terminal, but do not want a complicated setup
-- You want a clean system you can rebuild later
+- You can use a terminal, but want a simple setup path
+- You want to learn and build without compromising your computer
 
-## What You Get
+## Why Use This Kit
 
-- A simple setup path
-- A safe folder structure
-- Prompts to discover your machine and design the right architecture
-- A first post-build cloud API success test
+Use this kit if you want to:
+
+- set up AI coding tools safely with clear boundaries
+- build small AI helpers for real tasks (summaries, extraction, drafting, automations)
+- start with cloud APIs first, then add complexity later only if needed
+- keep your setup portable so you can rebuild it on another machine
+- optionally run more privacy-focused local workflows on your own machine
+
+## Privacy: Cloud vs Local (Simple Version)
+
+- Cloud mode: your prompts/data are sent to a provider API.
+- Local mode: inference runs on your own machine.
+
+Both are valid. This kit starts cloud-first for speed, then supports local options when they are practical.
+
+## Voice-to-Text Option (WhisperKit)
+
+`WhisperKit` is an open-source toolkit for running `Whisper` speech-to-text locally (on-device).
+
+In plain terms:
+
+- it turns audio into text
+- local use can be more private because audio does not need to leave your machine
+- local use does not charge per API call from cloud providers
+
+Money note:
+
+- local Whisper/WhisperKit software is generally free to run
+- if you use a hosted transcription API instead, that is usually paid per usage
+
+## Do You Need Docker?
+
+Docker is optional for this starter kit.
+
+Install Docker when you want to run local helper services on your machine, for example:
+
+- a local app database (store project data like users, tasks, notes)
+- a local document-search backend for “chat with my files”
+- a self-hosted tool you want to run locally
+
+If you are only calling cloud model APIs from Python/CLI, you do not need Docker yet.
 
 ## Start Here (4 Steps)
 

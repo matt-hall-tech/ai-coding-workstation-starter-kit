@@ -48,7 +48,7 @@ Reference: [First post-build cloud win](./full-guide.md#first-post-build-cloud-w
 
 ## Optional Upgrades (Later)
 
-- [ ] Add Docker service only when needed
+- [ ] Add Docker service only when needed (see README section: Do You Need Docker?)
 - [ ] Add local runtime only if discovery supports it
 - [ ] Add devcontainer if reproducibility becomes important
 - [ ] Script setup with `bootstrap.sh`
