@@ -2,20 +2,29 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-Cloud-first setup for frontier-model APIs, with local models as an optional upgrade.
+A beginner-friendly guide to set up your computer for AI coding in a safe, cloud-first way.
 
-## Start Here
+## Who This Is For
 
-This repo is for solo technical users who want a safe, reproducible machine setup for CLI-based AI work.
+- You use macOS, Linux, or Windows
+- You can use a terminal, but do not want a complicated setup
+- You want a clean system you can rebuild later
 
-If you are new, follow this order:
+## What You Get
 
-1. Complete the beginner checklist: [docs/checklist.md](./docs/checklist.md)
+- A simple setup path
+- A safe folder structure
+- Prompts to discover your machine and design the right architecture
+- A first post-build cloud API success test
+
+## Start Here (4 Steps)
+
+1. Open the checklist: [docs/checklist.md](./docs/checklist.md)
 2. Run discovery with Prompt A: [docs/full-guide.md#prompt-a---hardware-and-system-discovery](./docs/full-guide.md#prompt-a---hardware-and-system-discovery)
-3. Design your setup with Prompt B: [docs/full-guide.md#prompt-b---safe-llm-workshop-design](./docs/full-guide.md#prompt-b---safe-llm-workshop-design)
-4. Build the baseline and run one post-build cloud API test: [docs/full-guide.md#first-post-build-cloud-win](./docs/full-guide.md#first-post-build-cloud-win)
+3. Run design with Prompt B: [docs/full-guide.md#prompt-b---safe-llm-workshop-design](./docs/full-guide.md#prompt-b---safe-llm-workshop-design)
+4. Build your baseline and run one cloud test: [docs/full-guide.md#first-post-build-cloud-win](./docs/full-guide.md#first-post-build-cloud-win)
 
-### Workspace at a glance
+## Workspace at a Glance
 
 ```text
 /LLM-Workshop
@@ -28,16 +37,20 @@ If you are new, follow this order:
 
 ## Document Map
 
-- Full packet (detailed guide): [docs/full-guide.md](./docs/full-guide.md)
-- Action checklist (workbook style): [docs/checklist.md](./docs/checklist.md)
-- Visual folder tree + diagram: [docs/full-guide.md#visual-layout](./docs/full-guide.md#visual-layout)
-- Prompt A command fallback (macOS/Linux/Windows): [docs/full-guide.md#prompt-a---manual-command-fallback](./docs/full-guide.md#prompt-a---manual-command-fallback)
-- Post-baseline learning path: [NEXT-STEPS.md](./NEXT-STEPS.md)
-- Contribution guidance: [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Full guide: [docs/full-guide.md](./docs/full-guide.md)
+- Beginner checklist: [docs/checklist.md](./docs/checklist.md)
+- Visual folder diagram + mounts: [docs/full-guide.md#visual-layout](./docs/full-guide.md#visual-layout)
+- Prompt A command fallback: [docs/full-guide.md#prompt-a---manual-command-fallback](./docs/full-guide.md#prompt-a---manual-command-fallback)
+- Next learning path: [NEXT-STEPS.md](./NEXT-STEPS.md)
+- Contribution notes: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## Optional Markdown App Tip
+## Checklist Tip
 
-You can use checkboxes directly on GitHub. If you prefer a local Markdown app (for example Obsidian, VS Code, or Typora), open [docs/checklist.md](./docs/checklist.md) there and track progress the same way.
+In repository Markdown files, task boxes are plain text until you edit the file.
+
+- To mark progress in GitHub files, edit `[ ]` to `[x]` and commit
+- For easier day-to-day tracking, open [docs/checklist.md](./docs/checklist.md) in Obsidian, VS Code, or another Markdown app
+- If you want clickable task boxes on GitHub itself, use Issues or Pull Request task lists
 
 ## Repository Structure
 

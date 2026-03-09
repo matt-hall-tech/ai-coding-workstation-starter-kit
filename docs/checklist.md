@@ -2,7 +2,7 @@
 
 Use this as your practical worksheet.
 
-Tip: You can check boxes in GitHub, or open this file in Obsidian/VS Code/another Markdown app.
+Tip: In GitHub files, mark progress by editing `[ ]` to `[x]`. For easier tracking, open this file in Obsidian/VS Code/another Markdown app.
 
 ## Phase 1: Discovery
 
